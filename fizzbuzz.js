@@ -1,8 +1,20 @@
+const FIZZ = "Fizz";
+const BUZZ = "Buzz";
+const FIZZBUZZ = "FizzBuzz";
+
 function fizzBuzz(_nombre) {
-  if (_nombre === 0) return "FizzBuzz";
-  if (_nombre === 3 || _nombre === 6 || _nombre === 9) return "Fizz";
-  if (_nombre === 5 || _nombre === 10) return "Buzz";
+  if (_estDivisiblePar3(_nombre) && _estDivisiblePar5(_nombre)) return FIZZBUZZ;
+  if (_estDivisiblePar3(_nombre)) return FIZZ;
+  if (_estDivisiblePar5(_nombre)) return BUZZ;
   return undefined;
 }
 
-module.exports = fizzBuzz;
+function _estDivisiblePar3(_nombre) {
+  return _nombre % 3 === 0;
+}
+
+function _estDivisiblePar5(_nombre) {
+  return _nombre % 5 === 0;
+}
+
+module.exports = { fizzBuzz, FIZZ, BUZZ, FIZZBUZZ };
